@@ -450,6 +450,8 @@ there.
 }
 
 .Title {
+  position: 'absolute',
+  top: '50px',
   line-height: 38px;
   letter-spacing: .2rem;
   text-transform: uppercase;
