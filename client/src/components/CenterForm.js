@@ -7,7 +7,6 @@ import Typing from 'react-typing-animation'
 const h2Style = {
     position: 'absolute',
     top: '50px',
-    fontFamily: "Roboto"
 };
 
 const CenterForm = (props) => {
@@ -35,7 +34,7 @@ const CenterForm = (props) => {
     return (
         <div className="CenterForm">
             
-            <div style={h2Style}>
+            <div style={h2Style} className='Title'>
                 <Typing speed={100}>
                     <h2>Alexa, Be My Travel Guide</h2>
                 </Typing>

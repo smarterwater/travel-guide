@@ -448,7 +448,11 @@ there.
   padding-right: 10vw;
   padding-top: 5vh;
 }
-/* .CardImg {
-  width: 25vw;
-  height: 40vh;
-}  */
+
+.Title {
+  line-height: 38px;
+  letter-spacing: .2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: 'system-ui';
+}
