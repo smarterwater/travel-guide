@@ -15,7 +15,7 @@ const CenterForm = (props) => {
         if(!user.email || !user.password) return
         const register = async () => {
             try {
-                const response = axios.post('http://localhost:3001/', user)
+                const response = axios.post('/', user)
                 console.log(response)
                 props.history.push('/home')
             } catch(error) {

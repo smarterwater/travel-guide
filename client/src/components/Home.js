@@ -2,11 +2,8 @@ import React from 'react'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import CardDeck from 'react-bootstrap/CardDeck'
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
-import Link from 'react-router-dom'
-
+import Navbar from 'react-bootstrap/Navbar'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
 import Logo from '../images/mountain.svg'
 import Guy from '../images/backpacker.jpg'
 import Backpack from '../images/backpack.jpg'
@@ -14,12 +11,8 @@ import Planned from '../images/backlog.jpg'
 import Peaks from '../images/peaks.jpg'
 import Waterfall from '../images/waterfall.jpg'
 import Lake from '../images/lake.jpg'
+
 const Home = (props) => {
-
-    const handleHomeClick = () => {
-        props.history.push('/home')
-    }
-
     return (
         <div className="Home">
             <Navbar bg="dark" variant="dark" fixed='top' expand='lg' className='sticky-nav' >
