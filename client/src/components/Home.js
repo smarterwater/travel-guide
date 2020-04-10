@@ -12,6 +12,8 @@ import Peaks from '../images/peaks.jpg'
 import Waterfall from '../images/waterfall.jpg'
 import Lake from '../images/lake.jpg'
 
+
+
 const Home = (props) => {
     return (
         <div className="Home">
@@ -28,6 +30,8 @@ const Home = (props) => {
                 <Button variant="outline-secondary" onClick={() => props.history.push('/home')}>Home</Button>
                 <div className='divider'/>
                 <Button variant="outline-secondary" onClick={() => props.history.push('/profile')}>Profile</Button>
+                <div className='divider'/>
+                <Button variant="outline-danger" style={{float: 'right'}} onClick={() => props.history.push('/')}>Logout</Button>
             </Navbar>
 
             <CardDeck className="Deck">

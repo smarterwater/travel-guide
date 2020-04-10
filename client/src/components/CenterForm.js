@@ -2,6 +2,13 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import Typing from 'react-typing-animation'
+
+const h2Style = {
+    position: 'absolute',
+    top: '50px',
+    fontFamily: "Roboto"
+};
 
 const CenterForm = (props) => {
     const [user, setUser] = useState ({
@@ -27,6 +34,13 @@ const CenterForm = (props) => {
 
     return (
         <div className="CenterForm">
+            
+            <div style={h2Style}>
+                <Typing speed={100}>
+                    <h2>Alexa, Be My Travel Guide</h2>
+                </Typing>
+            </div>
+
             <Form onSubmit={handleSubmit}> 
                 <Form.Group controlId="formBasicEmail" style={{width: 150}}>
                     <Form.Control type="email" value={user.email} placeholder="Email" onChange={event => setUser({ ...user, email: event.target.value})}/>
