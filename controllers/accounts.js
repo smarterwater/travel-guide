@@ -6,6 +6,17 @@ accountsRouter.get('/', async (request, response) => {
     response.json(accounts.map(account => account.toJSON()))
 })
 
+accountsRouter.get('/find', (request, response) => {
+    const body = request.body
+    Account.findOne({ email: body.email, password: body.password }, (err, result) => {
+      if (result == null) {
+        response.send("no");
+      } else {
+        response.send("yes"); 
+      }
+    });
+})
+
 accountsRouter.post('/', async (request, response, next) => {
     const body = request.body
 

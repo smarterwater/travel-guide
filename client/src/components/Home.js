@@ -12,8 +12,6 @@ import Peaks from '../images/peaks.jpg'
 import Waterfall from '../images/waterfall.jpg'
 import Lake from '../images/lake.jpg'
 
-
-
 const Home = (props) => {
     return (
         <div className="Home">

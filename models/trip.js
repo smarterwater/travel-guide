@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 mongoose.set('useFindAndModify', false)
 
-const accountSchema = new mongoose.Schema ({
-    email: String,
-    password: String,
+const tripSchema = new mongoose.Schema ({
+    // email: String,
+    // password: String,
 })
 
-accountSchema.set('toJSON', {
+tripSchema.set('toJSON', {
     transform: (document, returnedObject) => {
         returnedObject.id = returnedObject._id.toString()
         delete returnedObject._id
@@ -14,4 +14,4 @@ accountSchema.set('toJSON', {
     }
 })
 
-module.exports = mongoose.model('Account', accountSchema)
+module.exports = mongoose.model('Trip', tripSchema)
