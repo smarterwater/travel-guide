@@ -9,7 +9,7 @@ const MONGODB_URI = process.env.MONGODB_URI
 
 app.use(cors())
 app.use(express.json())
-app.use('/', accountsRouter)
+app.use('/api/users', accountsRouter)
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {

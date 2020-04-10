@@ -1,13 +1,13 @@
 const accountsRouter = require('express').Router()
 const Account = require('../models/account')
 
-accountsRouter.get('/', (request, response) => {
+accountsRouter.get('/api/users', (request, response) => {
     Account.find({}).then(accounts => {
         response.json(accounts.map(account => account.toJSON()))
     })
 })
 
-accountsRouter.post('/', (request, response, next) => {
+accountsRouter.post('/api/users', (request, response, next) => {
     const body = request.body
 
     const account = new Account ({
@@ -22,7 +22,7 @@ accountsRouter.post('/', (request, response, next) => {
         .catch(error => next(error))
 })
 
-accountsRouter.delete('/:id', (request, response, next) => {
+accountsRouter.delete('/api/users/:id', (request, response, next) => {
     Account.findByIdAndRemove(request.params.id)
         .then(() => {
             response.status(204).end()
