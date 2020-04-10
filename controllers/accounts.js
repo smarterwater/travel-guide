@@ -1,13 +1,12 @@
 const accountsRouter = require('express').Router()
 const Account = require('../models/account')
 
-accountsRouter.get('/api/users', (request, response) => {
-    Account.find({}).then(accounts => {
-        response.json(accounts.map(account => account.toJSON()))
-    })
+accountsRouter.get('/', async (request, response) => {
+    const accounts = await Account.find({})
+    response.json(accounts.map(account => account.toJSON()))
 })
 
-accountsRouter.post('/api/users', (request, response, next) => {
+accountsRouter.post('/', async (request, response, next) => {
     const body = request.body
 
     const account = new Account ({
@@ -15,14 +14,21 @@ accountsRouter.post('/api/users', (request, response, next) => {
         password: body.password,
     })
 
-    account.save()
-        .then(savedAccount => {
-            response.json(savedAccount.toJSON())
-        })
-        .catch(error => next(error))
+    try {
+        const savedAccount = await account.save()
+        response.json(savedAccount.toJSON())
+    } catch(exception) {
+        next(exception)
+    }
 })
 
-accountsRouter.delete('/api/users/:id', (request, response, next) => {
+accountsRouter.delete('/:id', async (request, response, next) => {
+    try {
+        await Account.findByIdAndRemove(request.params.id)
+        response.status(204).end()
+    } catch (exception) {
+        next(exception)
+    }
     Account.findByIdAndRemove(request.params.id)
         .then(() => {
             response.status(204).end()
