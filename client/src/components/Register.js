@@ -23,7 +23,7 @@ const Register = (props) => {
         const register = async () => {
             try {
                 const response = await axios.post('/api/accounts/', data)
-                localStorage.setItem('name', response.data)
+                localStorage.setItem('name', response.username)
                 props.history.push('/home')
             } catch(error) {
                 setUser( {...user, error: 'Email already taken.'})
