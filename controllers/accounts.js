@@ -36,7 +36,7 @@ accountsRouter.post('/', async (request, response, next) => {
         })
     
         const savedAccount = await account.save()
-        response.json(savedAccount.toJSON())
+        response.json(savedAccount.username)
     }
 })
 

@@ -14,7 +14,6 @@ const Login = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log('email: ' + user.email + ' password: ' + user.password)
         if(!user.email || !user.password) return
 
         const data = {
@@ -54,7 +53,7 @@ const Login = (props) => {
                     Login
                 </Button>
                 <br/>
-                <Button variant="link" type="submit" style={{width: 150, color: '#6c757d'}} onClick={event => props.history.push('/signup')}>
+                <Button variant="link" style={{width: 150, color: '#6c757d'}} onClick={event => props.history.push('/signup')}>
                      Or Sign Up
                 </Button>
             </Form>

@@ -13,7 +13,6 @@ const Register = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log('email: ' + user.email + ' password: ' + user.password)
         if(!user.email || !user.password) return
         const data = {
             username: user.username,
@@ -23,7 +22,7 @@ const Register = (props) => {
         const register = async () => {
             try {
                 const response = await axios.post('/api/accounts/', data)
-                localStorage.setItem('name', response.username)
+                localStorage.setItem('name', response.data)
                 props.history.push('/home')
             } catch(error) {
                 setUser( {...user, error: 'Email already taken.'})

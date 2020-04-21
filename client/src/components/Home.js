@@ -1,5 +1,4 @@
 import React from 'react'
-import {useState} from 'react'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import CardDeck from 'react-bootstrap/CardDeck'
@@ -13,13 +12,7 @@ import Peaks from '../images/peaks.jpg'
 import Waterfall from '../images/waterfall.jpg'
 import Lake from '../images/lake.jpg'
 
-const getName = () => {
-
-}
-
-const Home = (props) => {
-    const [name, setName] = useState(localStorage.getItem('name'))
-  
+const Home = (props) => {  
     return (
         <div className="Home">
             <Navbar bg="dark" variant="dark" fixed='top' expand='lg' className='sticky-nav' >
@@ -37,7 +30,7 @@ const Home = (props) => {
                 <Button variant="outline-secondary" onClick={() => props.history.push('/profile')}>Profile</Button>
                 <div className='divider'/>
                 <Button variant="outline-danger" style={{float: 'right'}} onClick={() => props.history.push('/')}>Logout</Button>
-                <p style={{paddingLeft: '30px', marginBottom: 0, color: '#6c757d'}}>Welcome back, {name}.</p>
+                <p style={{paddingLeft: '30px', marginBottom: 0, color: '#6c757d'}}>Welcome back, {localStorage.getItem('name')}.</p>
             </Navbar>
 
             <CardDeck className="Deck">
