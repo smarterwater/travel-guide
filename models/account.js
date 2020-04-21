@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 mongoose.set('useFindAndModify', false)
 
 const accountSchema = new mongoose.Schema ({
+    username: String,
     email: String,
     password: String,
 })

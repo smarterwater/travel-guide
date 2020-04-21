@@ -6,30 +6,37 @@ accountsRouter.get('/', async (request, response) => {
     response.json(accounts.map(account => account.toJSON()))
 })
 
-accountsRouter.get('/find', (request, response) => {
-    const body = request.body
-    Account.findOne({ email: body.email, password: body.password }, (err, result) => {
-      if (result == null) {
-        response.send("no");
-      } else {
-        response.send("yes"); 
-      }
-    });
+accountsRouter.post('/find', async (request, response) => {
+    const email = request.body.email
+    const pass = request.body.password
+    
+    const result = await Account.findOne({email})
+    if (!result) {
+        return response.status(404).json({ error: "Email/password does not match" });
+    } 
+    else {
+        if (result.password != pass) {
+            return response.status(404).json({ error: "Email/password does not match" });
+        } else {
+            response.json(result.username);
+        }
+    }
 })
 
 accountsRouter.post('/', async (request, response, next) => {
     const body = request.body
-
-    const account = new Account ({
-        email: body.email,
-        password: body.password,
-    })
-
-    try {
+    const result = await Account.findOne({email: body.email})
+    if (result) {
+        return response.status(404).json({ error: "Email already exists." });
+    } else {
+        const account = new Account ({
+            username: body.username,
+            email: body.email,
+            password: body.password,
+        })
+    
         const savedAccount = await account.save()
         response.json(savedAccount.toJSON())
-    } catch(exception) {
-        next(exception)
     }
 })
 
