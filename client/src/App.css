@@ -464,3 +464,28 @@ there.
   text-decoration: none;
   font-family: 'system-ui';
 }
+
+.h1Space {
+  margin-top: 100px;
+}
+
+.Jumbotext {
+  text-align: center;
+}
+
+.ProfileForm {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto 0 auto;
+}
+
+.ProfilePicture {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto 0 auto;
+}
