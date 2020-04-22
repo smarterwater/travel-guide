@@ -91,7 +91,7 @@ const Home = (props) => {
                             <br/>
                             The world is full of beautiful natural locations. Why bother picking one yourself when we can just show you where everyone else is going!
                         </Card.Text>
-                        <Button variant="outline-secondary">Go To</Button>
+                        <Button variant="outline-secondary" onClick={() => props.history.push('/Weather')} >Go To</Button>
                     </Card.Body>
                 </Card>
 

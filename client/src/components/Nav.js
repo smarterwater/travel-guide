@@ -3,7 +3,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Button from 'react-bootstrap/Button'
 import Logo from '../images/mountain.svg'
 
-const Profile = (props) => {
+const Nav = (props) => {
     return (
         <div className="Profile">
             
@@ -23,11 +23,9 @@ const Profile = (props) => {
                 <div className='divider'/>
                 <Button variant="outline-danger" style={{float: 'right'}} onClick={() => this.props.history.push('/')}>Logout</Button>
             </Navbar>
-
-           <h1 style={{textAlign: 'center', marginTop: '100px'}}>Your Profile Filler Page</h1>
         </div>
     )
 }
 
 
-export default Profile
+export default Nav
