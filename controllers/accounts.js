@@ -1,11 +1,6 @@
 const accountsRouter = require('express').Router()
 const Account = require('../models/account')
 
-accountsRouter.get('/', async (request, response) => {
-    const accounts = await Account.find({})
-    response.json(accounts.map(account => account.toJSON()))
-})
-
 accountsRouter.post('/find', async (request, response) => {
     const email = request.body.email
     const pass = request.body.password
@@ -23,7 +18,7 @@ accountsRouter.post('/find', async (request, response) => {
     }
 })
 
-accountsRouter.post('/', async (request, response, next) => {
+accountsRouter.post('/', async (request, response) => {
     const body = request.body
     const result = await Account.findOne({email: body.email})
     if (result) {
