@@ -2,8 +2,10 @@ const mongoose = require('mongoose')
 mongoose.set('useFindAndModify', false)
 
 const tripSchema = new mongoose.Schema ({
-    // email: String,
-    // password: String,
+        city: String,
+        country: String,
+        price: Number,
+        rating: Number,
 })
 
 tripSchema.set('toJSON', {

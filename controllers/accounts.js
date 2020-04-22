@@ -18,7 +18,7 @@ accountsRouter.post('/find', async (request, response) => {
     }
 })
 
-accountsRouter.post('/', async (request, response, next) => {
+accountsRouter.post('/', async (request, response) => {
     const body = request.body
     const result = await Account.findOne({email: body.email})
     if (result) {

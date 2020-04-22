@@ -6,23 +6,14 @@ tripsRouter.get('/', async (request, response) => {
     response.json(trips.map(trip => trip.toJSON()))
 })
 
-// accountsRouter.get('/find', (request, response) => {
-//     const body = request.body
-//     Account.findOne({ email: body.email, password: body.password }, (err, result) => {
-//       if (result == null) {
-//         response.send("no");
-//       } else {
-//         response.send("yes"); 
-//       }
-//     });
-// })
-
-tripsRouter.post('/', async (request, response, next) => {
+tripsRouter.post('/', async (request, response) => {
     const body = request.body
 
     const trip = new Trip ({
-        // email: body.email,
-        // password: body.password,
+       city: body.city,
+       country: body.country,
+       price: body.price,
+       rating: body.rating
     })
 
     try {
@@ -32,19 +23,5 @@ tripsRouter.post('/', async (request, response, next) => {
         next(exception)
     }
 })
-
-// accountsRouter.delete('/:id', async (request, response, next) => {
-//     try {
-//         await Account.findByIdAndRemove(request.params.id)
-//         response.status(204).end()
-//     } catch (exception) {
-//         next(exception)
-//     }
-//     Account.findByIdAndRemove(request.params.id)
-//         .then(() => {
-//             response.status(204).end()
-//         })
-//         .catch(error => next(error))
-// })
 
 module.exports = tripsRouter

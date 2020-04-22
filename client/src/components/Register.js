@@ -18,6 +18,7 @@ const Register = (props) => {
             username: user.username,
             email: user.email,
             password: user.password
+            
         }
         const register = async () => {
             try {
