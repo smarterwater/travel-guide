@@ -8,7 +8,8 @@ A full-stack website made in a group of 4. The theme was an application that can
 * Mongoose - modeling for database.
 * Express.js - Node framework to handle APIs.
 * Node.js - web server.
-* React.js - front-end
+* React.js - front-end.
+* React Bootstrap - prebuilt components for building the UI. 
 
 ## Hosted On
  * Heroku - quick deployment and ease of use.
